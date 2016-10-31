@@ -28,7 +28,11 @@ const App = angular.module(
     require("./index.routes").name,
 
     // pages
-    require("./pages/main/main.module").name
+    require("./pages/main/main.module").name,
+
+    require("./pages/search/search.module").name,
+
+    require("./pages/favourites/favourites.module").name
 
   ]
 );
