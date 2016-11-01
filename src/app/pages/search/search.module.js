@@ -10,7 +10,7 @@ const searchPageModule = angular.module('search-module', [
 
 searchPageModule
     .config(route);
-searchPageModule
-    .controller('searchController', searchController);
+// searchPageModule
+//     .controller('searchController', searchController);
 
 export default searchPageModule;

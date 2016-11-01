@@ -9,8 +9,8 @@ function routeConfig($stateProvider) {
     .state('search', {
       url: '/',
       templateUrl: searchTpl,
-      controller: require('./search.controller.js')
-      //controllerAs: 'main',
+      controller: require('./search.controller.js'),
+      controllerAs: 'search'
     });
 
 }
