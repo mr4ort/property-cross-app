@@ -1,16 +1,29 @@
 .top-bar {
-    display: flex;
-    margin-bottom: 10px;
-    padding: 10px 0;
-    align-items: center;
-    justify-content: flex-end;
-    .title {
-        text-align: center;
-        width: 100%;
-        h1 {
-            font-size: 20px;
-            margin-bottom: 0;
-            margin-top: 0;
-        }
+  display: flex;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: flex-end;
+  .title {
+    text-align: center;
+    width: 100%;
+    h1 {
+      font-size: 20px;
+      margin-bottom: 0;
+      margin-top: 0;
     }
+  }
+}
+.button-group {
+  margin-bottom: 20px;
+}
+.history-list {
+  list-style-type: none;
+  border: 1px solid rgba(28, 29, 30, 0.53);
+  padding: 10px;
+}
+.location-list {
+  list-style-type: none;
+  border: 1px solid rgba(28, 29, 30, 0.53);
+  padding: 10px;
 }

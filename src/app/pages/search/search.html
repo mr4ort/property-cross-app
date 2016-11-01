@@ -17,4 +17,19 @@
         <button class="btn btn-default">Go</button>
         <button class="btn btn-default" ng-click="search.showMessage()">My location</button>
     </div>
+    <div ng-if="search.status === 'resent'">
+        <p>Resent searches:</p>
+        <ul class="history-list">
+            <li>Item</li>
+        </ul>
+    </div>
+    <div ng-if="search.status === 'error'">
+        <p>There was a problem with your search</p>
+    </div>
+    <div ng-if="search.status === 'location'">
+        <p>Please select a location below:</p>
+        <ul class="location-list">
+            <li>Location #1</li>
+        </ul>
+    </div>
 </div>
