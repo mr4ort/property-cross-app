@@ -1,21 +1,28 @@
 'use strict';
 
-function SearchController($log, store, loadData) {
+function SearchController($log, store, getLocation) {
   'ngInject';
 
-  this.showMessage = function () {
+  var cnt = this;
+
+  cnt.showMessage = function () {
     console.log('click');
   };
-    console.log(loadData.get());
 
-    console.log();
+  cnt.status = 'location';
+  cnt.errorMessage = '';
 
-    // this.status = 'resent';
-  // this.status = 'error';
-  this.status = 'location';
+  cnt.getLocation = function () {
+    getLocation.then(function successCallback(response) {
+      console.log(response);
+    }, function errorCallback(response) {
+      cnt.status = "error";
+      cnt.errorMessage = 'Cannot define your location';
+     });
+  };
 
 
-  $log.debug('Hello from search controller!');
+  // $log.debug('Hello from search controller!');
 
 }
 
