@@ -67,7 +67,7 @@ function SearchController($log, store, getLocation, getData, $state) {
 
   cnt.showSearchResult = function () {
 
-    $state.go('main');
+    $state.go('result');
   }
 
 }

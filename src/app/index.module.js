@@ -32,7 +32,9 @@ const App = angular.module(
 
     require("./pages/search/search.module").name,
 
-    require("./pages/favourites/favourites.module").name
+    require("./pages/favourites/favourites.module").name,
+
+    require("./pages/result/result.module").name
 
   ]
 );
