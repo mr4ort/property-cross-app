@@ -9,6 +9,6 @@ require('./services/store.factory')(shared);
 require('./services/resolver.provider')(shared);
 require('./services/store.service')(shared);
 require('./services/get-location.service')(shared);
-// require('./services/search.factory')(shared);
+require('./services/get-data.factory.js')(shared);
 
 export default shared;
