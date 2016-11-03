@@ -1,9 +1,9 @@
 'use strict';
 
-function ResultController($log) {
+function ResultController($log, dataStorage) {
   'ngInject';
 
-
+  console.log(dataStorage.get('searchResult'));
   $log.debug('Hello from result controller!');
 
 }

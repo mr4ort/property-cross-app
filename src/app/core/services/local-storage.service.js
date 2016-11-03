@@ -2,7 +2,7 @@
 
 export default function (app) {
     app
-        .service('store', ['$window', function ($window) {
+        .service('localStorage', ['$window', function ($window) {
             return {
 
                 get: function (key) {

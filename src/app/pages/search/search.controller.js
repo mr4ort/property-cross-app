@@ -1,6 +1,6 @@
 'use strict';
 
-function SearchController($log, store, getLocation, getData, $state) {
+function SearchController(localStorage, getLocation, getData, $state, dataStorage) {
   'ngInject';
 
   var cnt = this;
@@ -11,6 +11,7 @@ function SearchController($log, store, getLocation, getData, $state) {
 
   cnt.status = 'resent';
   cnt.errorMessage = '';
+  cnt.resentSearch = localStorage.get('resent-search') ? localStorage.get('resent-search'): [];
 
   function downloadData(dataReqest) {
     console.log(dataReqest);
@@ -31,10 +32,14 @@ function SearchController($log, store, getLocation, getData, $state) {
       cnt.errorMessage = 'The location was ambiguous and we could not determine which possibility to display listings for. The possible location names are returned in this case.';
     } else if (responsCeode === '100' || responsCeode === '101' || responsCeode === '110') {
       cnt.status = "location";
-      cnt.locations = receivedData.locations
+      cnt.searchResult = receivedData;
     }
 
     console.log(receivedData);
+  }
+
+  function addToResent(searchResult) {
+    console.log(searchResult);
   }
 
   cnt.searchByPlaceName = function (placeName) {
@@ -65,7 +70,10 @@ function SearchController($log, store, getLocation, getData, $state) {
      });
   };
 
-  cnt.showSearchResult = function () {
+  cnt.showSearchResult = function (searchResult) {
+
+    dataStorage.set('searchResult', searchResult);
+    addToResent(searchResult);
 
     $state.go('result');
   }
