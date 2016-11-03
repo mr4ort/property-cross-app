@@ -29,7 +29,11 @@
     <div ng-if="search.status === 'location'">
         <p>Please select a location below:</p>
         <ul class="location-list">
-            <li ng-repeat="loc in search.locations">{{loc.long_title}}</li>
+            <li ng-repeat="loc in search.locations">
+                <span ng-click="search.showSearchResult()">
+                    {{loc.long_title}}
+                </span>
+            </li>
         </ul>
     </div>
 </div>

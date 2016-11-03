@@ -1,6 +1,6 @@
 'use strict';
 
-function SearchController($log, store, getLocation, getData) {
+function SearchController($log, store, getLocation, getData, $state) {
   'ngInject';
 
   var cnt = this;
@@ -64,6 +64,11 @@ function SearchController($log, store, getLocation, getData) {
       cnt.errorMessage = 'Cannot define your location';
      });
   };
+
+  cnt.showSearchResult = function () {
+
+    $state.go('main');
+  }
 
 }
 
