@@ -9,7 +9,7 @@ function SearchController($log, store, getLocation, getData) {
     console.log('click');
   };
 
-  cnt.status = 'location';
+  cnt.status = 'resent';
   cnt.errorMessage = '';
 
   function downloadData(dataReqest) {
@@ -29,10 +29,25 @@ function SearchController($log, store, getLocation, getData) {
     if (responsCeode === '200') {
       cnt.status = "error";
       cnt.errorMessage = 'The location was ambiguous and we could not determine which possibility to display listings for. The possible location names are returned in this case.';
+    } else if (responsCeode === '100' || responsCeode === '101' || responsCeode === '110') {
+      cnt.status = "location";
+      cnt.locations = receivedData.locations
     }
 
     console.log(receivedData);
   }
+
+  cnt.searchByPlaceName = function (placeName) {
+
+    if (!placeName.length) return false;
+
+    let requestData = {
+      country: 'ua',
+      place_name: placeName
+    };
+
+    downloadData(requestData);
+  };
 
   cnt.getLocation = function () {
     getLocation.then(function successCallback(response) {

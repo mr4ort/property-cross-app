@@ -11,10 +11,10 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam enim harum iure necessitatibus nihil optio rem similique sit unde.</p>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="" placeholder="newcastle">
+        <input type="text" class="form-control" id="" placeholder="newcastle" ng-model="placeName">
     </div>
     <div class="button-group">
-        <button class="btn btn-default">Go</button>
+        <button class="btn btn-default" ng-click="search.searchByPlaceName(placeName)">Go</button>
         <button class="btn btn-default" ng-click="search.getLocation()">My location</button>
     </div>
     <div ng-if="search.status === 'resent'">
@@ -29,7 +29,7 @@
     <div ng-if="search.status === 'location'">
         <p>Please select a location below:</p>
         <ul class="location-list">
-            <li>Location #1</li>
+            <li ng-repeat="loc in search.locations">{{loc.long_title}}</li>
         </ul>
     </div>
 </div>
