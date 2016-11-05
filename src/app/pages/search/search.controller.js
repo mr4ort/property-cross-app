@@ -5,22 +5,24 @@ function SearchController(localStorage, getLocation, getData, $state, dataStorag
 
   var cnt = this;
 
-  cnt.showMessage = function () {
-    console.log('click');
-  };
-
   cnt.status = 'resent';
   cnt.errorMessage = '';
   cnt.resentSearch = localStorage.get('resent-search') ? localStorage.get('resent-search'): [];
 
   function downloadData(dataReqest) {
-    console.log(dataReqest);
     getData(dataReqest).then(function successCallback(response) {
       displayData(response.data.response);
 
     }, function errorCallback(response) {
       console.log(response.data.response.application_response_code + response.data.response.application_response_text);
     });
+  }
+
+  function arrayObjectIndexOf(myArray, searchTerm, property) {
+    for(var i = 0, len = myArray.length; i < len; i++) {
+      if (myArray[i][property] === searchTerm) return i;
+    }
+    return -1;
   }
 
   function displayData(receivedData) {
@@ -34,12 +36,25 @@ function SearchController(localStorage, getLocation, getData, $state, dataStorag
       cnt.status = "location";
       cnt.searchResult = receivedData;
     }
-
-    console.log(receivedData);
   }
 
   function addToResent(searchResult) {
-    console.log(searchResult);
+
+    let res = {};
+
+    res.title= searchResult.locations[0].title;
+    res.place_name= searchResult.locations[0].place_name;
+    res.length= searchResult.listings.length;
+
+    if (arrayObjectIndexOf(cnt.resentSearch, res, 'length') !== -1){
+      let index = arrayObjectIndexOf(cnt.resentSearch, res, 'length');
+      cnt.resentSearch.splice(index, 1);
+    }  else if (cnt.resentSearch.length > 4){
+      cnt.resentSearch.pop();
+    }
+
+    cnt.resentSearch.unshift(res);
+    localStorage.set('resent-search', cnt.resentSearch);
   }
 
   cnt.searchByPlaceName = function (placeName) {

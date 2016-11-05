@@ -7,7 +7,7 @@ export default function (app) {
 
                 get: function (key) {
                     if ($window.localStorage[key]) {
-                        var val = angular.fromJson($window.localStorage[key]);
+                        var val = $window.localStorage[key];
                         return JSON.parse(val);
                     }
                     return false;
@@ -17,7 +17,7 @@ export default function (app) {
                     if (val === undefined) {
                         $window.localStorage.removeItem(key);
                     } else {
-                        $window.localStorage[key] = angular.toJson(val);
+                        $window.localStorage[key] = JSON.stringify(val);
                     }
                     return $window.localStorage[key];
                 }

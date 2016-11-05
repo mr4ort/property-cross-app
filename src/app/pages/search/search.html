@@ -20,7 +20,9 @@
     <div ng-if="search.status === 'resent'">
         <p>Resent searches:</p>
         <ul class="history-list">
-            <li>Item</li>
+            <li ng-repeat="item in search.resentSearch">
+                <span>{{item.title}}({{item.length}})</span>
+            </li>
         </ul>
     </div>
     <div ng-if="search.status === 'error'">
