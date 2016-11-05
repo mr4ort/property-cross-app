@@ -20,7 +20,7 @@ function SearchController(localStorage, getLocation, getData, $state, dataStorag
 
   function arrayObjectIndexOf(myArray, searchTerm, property) {
     for(var i = 0, len = myArray.length; i < len; i++) {
-      if (myArray[i][property] === searchTerm) return i;
+      if (myArray[i][property] === searchTerm[property]) return i;
     }
     return -1;
   }
@@ -46,8 +46,9 @@ function SearchController(localStorage, getLocation, getData, $state, dataStorag
     res.place_name= searchResult.locations[0].place_name;
     res.length= searchResult.listings.length;
 
-    if (arrayObjectIndexOf(cnt.resentSearch, res, 'length') !== -1){
-      let index = arrayObjectIndexOf(cnt.resentSearch, res, 'length');
+    if (arrayObjectIndexOf(cnt.resentSearch, res, 'place_name') !== -1){
+      let index = arrayObjectIndexOf(cnt.resentSearch, res, 'place_name');
+      console.log(index);
       cnt.resentSearch.splice(index, 1);
     }  else if (cnt.resentSearch.length > 4){
       cnt.resentSearch.pop();
