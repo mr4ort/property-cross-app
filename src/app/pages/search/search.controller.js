@@ -88,9 +88,16 @@ function SearchController(localStorage, getLocation, getData, $state, dataStorag
 
   cnt.showSearchResult = function (searchResult) {
 
-    dataStorage.set('searchResult', searchResult);
+    dataStorage.set('search-result', searchResult);
     addToResent(searchResult);
 
+    $state.go('result');
+  }
+
+  cnt.showResentSearchResult = function (place) {
+    if (!place.length) return false;
+
+    dataStorage.set('place-name', place);
     $state.go('result');
   }
 
