@@ -1,13 +1,12 @@
 'use strict';
 
-function ResultController(dataStorage, getData) {
+function ResultController(dataStorage, getData, $state) {
   'ngInject';
 
   const cnt = this;
 
   let searchResult = dataStorage.get('search-result');
   let placeName = dataStorage.get('place-name');
-  let totalPages;
 
   cnt.dataForDispaing = {};
 
@@ -51,6 +50,9 @@ function ResultController(dataStorage, getData) {
 
     downloadData(requestData);
   }
+  else {
+    $state.go('search')
+  }
   
   cnt.loadMore = function () {
 
@@ -63,6 +65,10 @@ function ResultController(dataStorage, getData) {
 
       downloadData(requestData);
     }
+  };
+  
+  cnt.showDetails = function () {
+    // dataStorage.set('');
   }
 
 
