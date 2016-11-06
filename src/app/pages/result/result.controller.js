@@ -57,7 +57,7 @@ function ResultController(dataStorage, getData) {
     if (cnt.dataForDispaing.corentPages < cnt.dataForDispaing.totalPages) {
       let requestData = {
         country: 'ua',
-        place_name: placeName,
+        place_name: cnt.dataForDispaing.place_name,
         page: cnt.dataForDispaing.corentPages + 1
       };
 
