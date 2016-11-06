@@ -17,7 +17,7 @@ export default function (app) {
 
                 set: function (key, val) {
                     if (val === undefined) {
-                        storage.removeItem(key);
+                        storage[key] = undefined;
                     } else {
                         storage[key] = JSON.stringify(val);
                     }

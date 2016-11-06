@@ -1,0 +1,21 @@
+.results {
+  list-style-type: none;
+  padding: 0;
+}
+.result-item {
+  display: flex;
+  justify-content: flex-start;
+  .img-holder {
+    width: 25%;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .description {
+    padding: 0 10px;
+  }
+}
+.result-item + .result-item {
+  margin-top: 10px;
+}
