@@ -1,17 +1,22 @@
 <div class="container">
-    <div class="top-bar">
-        {{result.dataForDispaing.searchResult.length}} of {{result.dataForDispaing.totalLenth}}
+    <div class="top-panel">
+        {{result.dataForDispaing.searchResult.length}} of {{result.dataForDispaing.totalLenth}} matches
     </div>
     <div class="content">
         <ul class="results">
-            <li class="result-item" ng-repeat="item in result.dataForDispaing.searchResult">
+            <li class="result-item" ng-click="console.log('show details')" ng-repeat="item in result.dataForDispaing.searchResult">
                 <div class="img-holder">
-                    <img ng-src="{{item.img_url}}" alt="" height="{{item.img_height}}" width="{{item.img_width}}">
+                    <img ng-src="{{item.thumb_url}}" alt="" height="{{item.thumb_height}}" width="{{item.thumb_width}}">
                 </div>
                 <div class="description">
                     <span class="price">{{item.price_formatted}}</span>
+                    <br>
+                    <span class="summary">{{item.summary}}</span>
                 </div>
             </li>
         </ul>
+    </div>
+    <div>
+        <button ng-click="result.loadMore()">Load More</button>
     </div>
 </div>

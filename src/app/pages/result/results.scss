@@ -1,3 +1,7 @@
+.top-panel {
+  text-align: center;
+  padding: 15px;
+}
 .results {
   list-style-type: none;
   padding: 0;
@@ -5,8 +9,9 @@
 .result-item {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   .img-holder {
-    width: 25%;
+    width: 50%;
     img {
       max-width: 100%;
       height: auto;
