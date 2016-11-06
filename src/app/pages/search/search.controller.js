@@ -44,7 +44,7 @@ function SearchController(localStorage, getLocation, getData, $state, dataStorag
 
     res.title= searchResult.locations[0].title;
     res.place_name= searchResult.locations[0].place_name;
-    res.length= searchResult.listings.length;
+    res.length= searchResult.total_results;
 
     if (arrayObjectIndexOf(cnt.resentSearch, res, 'place_name') !== -1){
       let index = arrayObjectIndexOf(cnt.resentSearch, res, 'place_name');
