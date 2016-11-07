@@ -28,13 +28,14 @@ const App = angular.module(
     require("./index.routes").name,
 
     // pages
-    require("./pages/main/main.module").name,
 
     require("./pages/search/search.module").name,
 
     require("./pages/favourites/favourites.module").name,
 
-    require("./pages/result/result.module").name
+    require("./pages/result/result.module").name,
+
+    require("./pages/details/details.module").name
 
   ]
 );

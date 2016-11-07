@@ -8,7 +8,7 @@ function ResultController(dataStorage, getData, $state) {
   let searchResult = dataStorage.get('search-result');
   let placeName = dataStorage.get('place-name');
 
-  cnt.dataForDispaing = {};
+  cnt.dataForDispaing =  {};
 
   function downloadData(dataReqest) {
     getData(dataReqest).then(function successCallback(response) {
@@ -35,6 +35,7 @@ function ResultController(dataStorage, getData, $state) {
     console.log(cnt.dataForDispaing);
 
   }
+
 
   if (searchResult) {
     dataStorage.set('search-result');
@@ -67,8 +68,12 @@ function ResultController(dataStorage, getData, $state) {
     }
   };
   
-  cnt.showDetails = function () {
-    // dataStorage.set('');
+  cnt.showDetails = function (item) {
+
+    dataStorage.set('item-details', item);
+    dataStorage.set('data-items', cnt.dataForDispaing);
+
+    $state.go('details');
   }
 
 

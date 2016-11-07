@@ -4,14 +4,16 @@
     </div>
     <div class="content">
         <ul class="results">
-            <li class="result-item" ng-click="console.log('show details')" ng-repeat="item in result.dataForDispaing.searchResult">
-                <div class="img-holder">
-                    <img ng-src="{{item.thumb_url}}" alt="" height="{{item.thumb_height}}" width="{{item.thumb_width}}">
-                </div>
-                <div class="description">
-                    <span class="price">{{item.price_formatted}}</span>
-                    <br>
-                    <span class="summary">{{item.summary}}</span>
+            <li class="" ng-repeat="item in result.dataForDispaing.searchResult">
+                <div class="result-item" ng-click="result.showDetails(item)">
+                    <div class="img-holder">
+                        <img ng-src="{{item.thumb_url}}" alt="" height="{{item.thumb_height}}" width="{{item.thumb_width}}">
+                    </div>
+                    <div class="description">
+                        <span class="price">{{item.price_formatted}}</span>
+                        <br>
+                        <span class="summary">{{item.summary}}</span>
+                    </div>
                 </div>
             </li>
         </ul>

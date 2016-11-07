@@ -5,6 +5,9 @@
 .results {
   list-style-type: none;
   padding: 0;
+  li + li {
+    margin-top: 10px;
+  }
 }
 .result-item {
   display: flex;
@@ -21,6 +24,4 @@
     padding: 0 10px;
   }
 }
-.result-item + .result-item {
-  margin-top: 10px;
-}
+
