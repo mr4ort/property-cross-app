@@ -9,8 +9,8 @@ function routeConfig($stateProvider) {
     .state('favourites', {
       url: '/favourites',
       templateUrl: mainTpl,
-      controller: require('./favourites.controller.js')
-      //controllerAs: 'main',
+      controller: require('./favourites.controller.js'),
+      controllerAs: 'favorite',
     });
 
 }

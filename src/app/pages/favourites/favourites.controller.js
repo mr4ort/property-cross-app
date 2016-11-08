@@ -1,10 +1,20 @@
 'use strict';
 
-function FavouritesController($log) {
+function FavouritesController(dataStorage, $state, localStorage) {
   'ngInject';
 
+  const cnt = this;
 
-  $log.debug('Hello from favourites controller!');
+  cnt.favorites = localStorage.get('favorites') ? localStorage.get('favorites') : [];
+
+  cnt.showDetails = function (item) {
+
+    dataStorage.set('item-details', item);
+    dataStorage.set('data-items', cnt.dataForDispaing);
+
+    $state.go('details');
+  }
+
 
 }
 
