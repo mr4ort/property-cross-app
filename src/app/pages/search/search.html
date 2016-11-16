@@ -20,7 +20,7 @@
     <div ng-if="search.status === 'resent'">
         <p>Resent searches:</p>
         <ul class="history-list">
-            <li ng-repeat="item in search.resentSearch">
+            <li ng-repeat="item in search.resentSearch track by $index">
                 <span ng-click="search.showResentSearchResult(item.place_name)">{{item.title}}({{item.length}})</span>
             </li>
         </ul>

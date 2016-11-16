@@ -1,7 +1,7 @@
 <div class="container">
     <div class="content">
         <ul class="results">
-            <li class="" ng-repeat="item in favorite.favorites">
+            <li class="" ng-repeat="item in favorite.favorites track by $index">
                 <div class="result-item" ng-click="favorite.showDetails(item)">
                     <div class="img-holder">
                         <img ng-src="{{item.thumb_url}}" alt="" height="{{item.thumb_height}}" width="{{item.thumb_width}}">
